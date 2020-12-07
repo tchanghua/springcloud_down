@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js "></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script language="javascript" type="text/javascript">
+        window.onload=function(){
+            var paramUrl = window.location.search.substr(1);
+            var paramStrs = paramUrl.split('=');
+            document.getElementById("email").innerText =paramStrs[1];//getParamString("email")
+        }
+
+        function getParamString(name) {
+            var paramUrl = window.location.search.substr(1);
+            var paramStrs = paramUrl.split('&');
+            var params = {};
+            for(var index = 0; index < paramStrs.length; index++) {
+                params[paramStrs[index].split('=')[0]] = decodeURI(paramStrs[index].split('=')[1]);
+            }
+            return params[name];
+        }
+    </script>
+</head>
+<body>
+<!--${email},欢迎登录系统！-->
+<!--<div th:text="${email}" />,欢迎登录系统！-->
+<span id="email"></span>,欢迎登录系统！
+</body>
+
+</html>

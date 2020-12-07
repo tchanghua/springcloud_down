@@ -1,5 +1,10 @@
 # Compiled class file
 *.class
+/lagou-parent/lagou-service-code/target
+/lagou-parent/lagou-service-common/target
+/lagou-parent/lagou-service-dubbo-api/target
+/lagou-parent/lagou-service-email/target
+/lagou-parent/lagou-service-user/target
 
 # Log file
 *.log
@@ -21,3 +26,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+#idea
+*.idea
+*.iml

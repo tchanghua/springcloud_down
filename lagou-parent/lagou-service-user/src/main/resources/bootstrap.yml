@@ -1,0 +1,33 @@
+server:
+  port: 8085
+
+spring.thymeleaf.cache : false
+spring.thymeleaf.prefix : classpath:/templates/
+spring:
+  application:
+    name: lagou-service-user
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=CTT&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  #避免将驼峰命名转换为下划线命名
+ #配置nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+dubbo:
+  registry:
+    # 挂载到 Spring Cloud 注册中⼼
+    address: spring-cloud://localhost
+  cloud:
+    # 订阅服务提供⽅的应⽤列表，订阅多个服务提供者使⽤ "," 连接
+    subscribed-services: lagou-service-code

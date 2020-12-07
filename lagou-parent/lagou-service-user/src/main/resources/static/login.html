@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js "></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+</head>
+<body>
+  <script>
+      function login() {
+          $.ajax({
+              url:'http://localhost/api/user/login/'+$('#email').val()+'/'+$('#password').val(),
+              type:'get',
+              data:{
+                  //email:$('#email').val(),
+                  //password:$('#password').val()
+              },
+              success:function (res) {
+                  if(res != ""){
+                      alert("登录成功");
+                      window.location.href = "welcome.html?email="+res;
+                  }else{
+                      alert("登陆失败");
+                      window.location.href = "login.html";
+                  }
+
+              },
+              error: function () {
+                  window.location.href = "login.html";
+              }
+          })
+
+      }
+  </script>
+
+    登录页面<br/>
+    <div>
+        邮箱：<input type="text" id="email" width="150px"> <br/>
+        密码：<input type="password" id="password" width="150px"> <br/>
+        <button width="150px" onclick="login()">登录</button> <br/>
+        <span><a href="register.html">注册新账号</a></span>
+    </div>
+</body>
+
+</html>
